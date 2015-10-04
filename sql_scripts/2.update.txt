@@ -1,0 +1,1 @@
+ALTER TABLE `stickers`.`user` ADD COLUMN `email` VARCHAR(96) NULL DEFAULT NULL  ;

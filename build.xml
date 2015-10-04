@@ -1,0 +1,63 @@
+<project name="Stickers" default="target" basedir=".">
+  <property name="src" location="."/>
+  <property name="dist" location="target"/>
+  <property name="closuerexec.dir" location="C:/java/closure_compiler"/>
+  <property name="outputJS" location="${src}/js/zsticker.js"/>
+  <property name="inputJSdir" location="${src}/js/src"/>
+
+  <target name="init">
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${dist}"/>
+  </target>
+  
+  <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask"
+           classpath="${closuerexec.dir}/compiler.jar"/>
+    
+  <target name="generatejs">
+    <jscomp compilationLevel="simple" warning="verbose" 
+            debug="true" output="${dist}/js/zsticker.js">
+      <sources dir="${basedir}/js/src">
+        <file name="view.js"/>
+        <file name="controller.js"/>
+        <file name="app.js"/>
+      </sources>
+      
+      <externs dir="${basedir}/js/ext">
+        <file name="jquery1.9.js"/>
+      </externs>
+    </jscomp>
+  </target>
+
+  <target name="target" depends="clean,init,generatejs"
+        description="generate the distribution" >
+
+    <copy todir="${dist}">
+      <fileset dir="${src}">
+        <exclude name="**/.git/**" />
+        <exclude name="**/.settings/**" />
+        <exclude name="**/cache/**" />
+        <exclude name="**/css/src/**" />
+        <exclude name="**/js/ext/**" />
+        <exclude name="**/js/src/**" />
+        <exclude name="**/sql_scripts/**" />
+        <exclude name="**/target/**" />
+        <exclude name="**/config/*.php" />
+        <exclude name="**/.buildpath" />
+        <exclude name="**/.gitignore" />
+        <exclude name="**/.project" />
+        <exclude name="build.xml" />
+      </fileset>
+    </copy>
+    
+    <copy file="${src}/config/config-prod.php" tofile="${dist}/config/config.php"/>
+    <copy file="${src}/css/src/screen.css" tofile="${dist}/css/screen.css"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <delete includeEmptyDirs="true">
+      <fileset dir="${dist}" includes="**" excludes=".git"/>
+    </delete>
+  </target>
+</project>

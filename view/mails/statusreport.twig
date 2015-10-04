@@ -1,0 +1,65 @@
+{% extends "layoutmail.twig" %}
+{% block title %}{{ pageContext.statusreport_title }} {% endblock %}
+{% block content %}
+<!-- EMAIL CONTENT -->
+  <h2 style="font-family:arial, helvetica, san-serif; font-size:22px; line-height:34px; margin:0; color:#444444 !important; padding: 0; font-weight: normal;">
+  {{ pageContext.statusreport_headtitle }}
+  </h2>
+  <p>{{ date }}</p>
+  <p>{{ pageContext.statusreport_greeting }}{{ user.fullname }} <br/>
+  {{ pageContext.statusreport_leading }}<br/>
+  <a href="http://zsticker.com">http://zsticker.com</a>.
+  </p>
+  
+  {% for album in user.albums %}
+  <h1>
+  {{ textResources.get('album_' ~ album.key) }}
+  </h1>
+
+    {% if album.hasStickers4You is not empty %}
+      <h2 style="font-family:arial, helvetica, san-serif; font-size:16px; line-height:34px; margin:0; color:#444444 !important; padding: 0; font-weight: bold;">
+      	{{ pageContext.statusreport_missingstickers }}
+      </h2>
+      {% for giver in album.hasStickers4You %}
+        <p>
+          <span style="font-weight:bold;font-style:italic;">
+          	{{ giver.name }}
+          </span>
+          {{ giver.stickers }}
+        </p>
+      {% endfor %}
+    {% endif %}
+    
+    {% if album.neededBy is not empty %}
+      <h2 style="font-family:arial, helvetica, san-serif; font-size:16px; line-height:34px; margin:0; color:#444444 !important; padding: 0; font-weight: bold;">
+      	{{ pageContext.statusreport_duplicatestickers }}
+      </h2>
+      {% for consumer in album.neededBy %}
+      	<p>
+          <span style="font-weight:bold;font-style:italic;">
+          	{{ consumer.name }}
+          </span>
+           {{ consumer.stickers }}
+        </p>
+      {% endfor %}
+    {% endif %}
+    
+  {% endfor %}
+  <p>
+  {{ pageContext.statusreport_contact }}
+  	<br/>
+  	<a href="http://zsticker.com">http://zsticker.com</a>
+  </p>
+  <p>
+    {{ pageContext.statusreport_regards|raw }}
+  </p>
+  <!-- /EMAIL CONTENT -->
+  {% endblock %}
+  
+  {% block footer %}
+  <p style="margin: 1em 0; font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:14px; line-height:19px; margin-top:0 !important; margin-top:0; font-size:10px;color:#666666 !important; ">
+    <span class="forApple">
+    <a><font color="#666666">{{ pageContext.statusreport_footer }}</font></a></span><br>
+    <br>
+  </p>
+  {% endblock %}

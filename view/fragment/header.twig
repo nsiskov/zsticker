@@ -1,0 +1,41 @@
+{% if userLoggedIn %}
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+      <div class="headerNavigation">
+        <span class="navbar-brand" href="">{{ textResources.siteTitle }}</span>
+        <ul class="nav nav-pills pull-left">
+          <li class="{%if viewType == 'missing'%}active{%endif%}"><a
+              href="{{ urlRewrite.r('entry.php?t=dashboard&type=missing') }}">{{textResources.header_editMissing}}</a>
+          </li>
+          <li class="{%if viewType == 'duplicate'%}active{%endif%}"><a
+              href="{{ urlRewrite.r('entry.php?t=dashboard&type=duplicate') }}">{{textResources.header_editDuplicates}}</a>
+          </li>
+          <li class="{%if viewType == 'match'%}active{%endif%}"><a
+              href="{{ urlRewrite.r('entry.php?t=dashboard&type=match') }}">{{textResources.header_match}}</a>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li class="dropdown" role="menu">
+            <a href="#" class="dropdown-toggle" data-target="#"
+                data-toggle="dropdown">{{ user.getFullName() }}<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li role="presentation" class="dropdown-header">{{ textResources.header_myAlbums }}</li>
+            {% for album in user.albums %}
+            	<li><a href="{{ urlRewrite.r('entry.php?t=dashboard&type=missing') }}&albumId={{ album.albumId }}">{{ textResources.get('album_' ~ album.getAlbumName) }}</a></li>
+            {% endfor %}
+              <li class="divider"></li>
+            	<li><a href="{{ urlRewrite.r('entry.php?t=manageAlbums') }}">{{ textResources.header_manageAlbums }}</a></li>
+              <li class="divider"></li>
+              <li><a
+                  href="{{ urlRewrite.r('entry.php?t=login&logout=true') }}">
+                  {{textResources.header_logout}} {{ user.getFirstName() }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+{% endif %}

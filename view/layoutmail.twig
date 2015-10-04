@@ -1,0 +1,159 @@
+<!doctype html public "- / /w3c / /dtd xhtml 1.0 transitional / /en" "http: / /www.w3.org /tr /xhtml1 /dtd /xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml" dir="LTR">
+  <head>
+    <meta content="text/html; charset=utf-8 " http-equiv="Content-Type">
+    <title>Stickers - {% block title %}{% endblock %}</title>
+    <style type="text/css">
+      /* Client-specific Styles */
+      /* Force Outlook to provide a "view in browser" menu link. */
+      #outlook a {padding:0;}
+      /* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/
+      body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+      
+      /* Force Hotmail to display emails at full width */
+      .ExternalClass {width:100%;}
+      /* Forces Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,.ExternalClass td, .ExternalClass div {line-height: 100%;}
+      
+      #backgroundTable {margin:0; padding:0; width:100% !important; line-height:100% !important;}
+      /* End reset */
+      
+      /* Outlook 07, 10 Padding issue fix
+      Bring inline: No.*/
+      table td {border-collapse: collapse;}
+      
+      /* Hide preheader */
+      span.preheader	{
+           display: none !important; font-size:1px !important; color:#ffffff !important;
+      }
+      
+      /* Hotmail symbol fix */
+      .symbolfix img{width:10px !important;height:10px !important;}
+      
+      /* iPhone button fix */
+      @media only screen and (max-device-width: 480px) {
+      	td[class=btn-left], td[class=btn-right] {display:none !important;}
+      	td[class=btn-mid] {position:relative  !important; background-image:none !important; background-color:inherit !important;}
+      	a[class=thebtn] {padding:8px 4px 8px 4px !important; background-color:#409bf6 !important; -webkit-border-radius: 3px !important;}
+      }
+      /*iOS address & phone number fix */
+      .forApple a { color: #444444 !important; text-decoration: none; !important }
+      
+      /* Apple Link Fix For Footer */
+      .forApple_header a { color: #444444 !important; text-decoration: none !important; }
+      
+      /* Apple Link Fix For Footer */
+      .forApple a { color: #444444 !important; text-decoration: none !important; }
+      
+      /* Apple Link Fix For ad module */
+      .forApple_url a { color: #00802a !important; text-decoration: none !important; }
+      
+      #lwg-logo {width:65px;}
+      #online-classroom {width:32px;}
+      #adwords-help-logo {width:39px;}
+      
+      #outlook, .outlooktd {width:650px !important;}
+    </style>
+  </head>
+  
+  <body bgcolor="#FFFFFF" style="color:#444444;margin:0; padding:0; background-color:#ffffff;font-family:Arial,Helvetica, sans-serif; font-weight:normal;font-size:14px; line-height:19px; color:#444444; border-collapse:collapse;">
+    <div style="max-width:650px; margin:0 auto;">
+  
+        <!--[if lte mso 7]>
+    <table id="outlook" width="650" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; table-width:fixed;" align="center">
+    <tr><td class="outlooktd" style="width:650px !important;">
+    <![endif]-->
+        <!--[If gte mso 9]>
+    <table id="outlook" width="650" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; table-width:fixed;" align="center">
+    <tr><td class="outlooktd" style="width:650px !important;">
+    <![endif]-->
+    
+        <!--Email Container-->
+        <table width="100%" id="outlook" class="mobile" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="max-width:650px;padding-top:0px; font-family:Arial, Helvetica, sans-serif; font-weight:normal;font-size:14px; line-height:19px; color:#444444; border-collapse:collapse;background-color:#ffffff!important;">
+    	<tr>
+    	<td>
+    		<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:14px; line-height:19px; color:#444444; border-collapse:collapse; background-color:#ffffff !important; border: 1px solid #dddddd;">
+    		<!-- MASTHEAD -->
+    			<tr>
+    			<td colspan="3">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f5f5f5" style="background-color:#f5f5f5 !important; font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:14px; line-height:19px; color:#444444; border-collapse:collapse; border-bottom: 1px solid #dddddd;">
+    	<tr>
+      	<td width="3%"></td>
+      	<td height="80" width="94%" valign="middle"><img src="{{ host }}/{{ pageContext.serverContext }}/img/logo_small.jpg" height="50" width="100" alt="Stickers" title="Stickers" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; display:block;" border="0"></td>
+      	<td width="3%"></td>
+    	</tr>
+    </table>
+    
+    			</td>
+    			</tr>
+    		<!-- /MASTHEAD -->
+    
+    		<!-- MAIN BODY -->
+    			<tr>
+      			<td width="3%"></td>
+      			<td width="94%"></td>
+      			<td width="3%"></td>
+    			</tr>
+    			<tr>
+      			<td width="3%"></td>
+      			<td width="94%">
+    
+      			{% block content %}{% endblock %}
+      
+      			</td>
+	    			<td width="3%"></td>
+    			</tr>
+    		<!-- /MAIN BODY -->
+    
+    		<!--CLOSING -->
+    			<tr>
+      			<td width="3%"></td>
+      			<td width="94%"></td>
+      			<td width="3%"></td>
+    			</tr>
+    			<tr>
+      			<td valign="top" colspan="3">
+      				<table id="footermark" width="100%" height="4" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:4px; line-height:4px; color:#444444; border-collapse:collapse; background-color:#ffffff !important; height:4px;">
+      					<tbody><tr>
+        					<td height="4" width="69%" style="line-height:4px; font-size:4px;"></td>
+        					<td height="4" bgcolor="#3369E8" width="6%" style="background-color:#3369E8 !important;line-height:4px; font-size:4px;"></td>
+        					<td height="4" bgcolor="#d50f25" width="6%" style="background-color:#d50f25 !important;line-height:4px; font-size:4px;"></td>
+        					<td height="4" bgcolor="#eeb211" width="6%" style="background-color:#eeb211 !important;line-height:4px; font-size:4px;"></td>
+        					<td height="4" bgcolor="#009925" width="6%" style="background-color:#009925 !important;line-height:4px; font-size:4px;"></td>
+        					<td height="4" width="7%" style="line-height:4px; font-size:4px;"></td>
+      					</tr></tbody>
+      				</table>
+      			</td>
+    			</tr>
+    		 </table>
+    		<!--/CLOSING -->
+    
+    		<!-- FOOTER -->
+    		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:14px; line-height:19px; color:#444444; border-collapse:collapse;">
+    			<tr><td height="20" colspan="3"></td></tr>
+    			<tr>
+      			<td width="3%"></td>
+      			<td width="94%" style="text-align:left; color:#666666 !important; font-size:10px; line-height:14px;">
+      <!-- FOOTER CONTENT -->
+      {% block footer %}{% endblock %}
+      <!-- /FOOTER CONTENT -->
+      			</td>
+      			<td width="3%"></td>
+    			</tr>
+    			<tr><td height="20" colspan="3"></td></tr>
+    		</table>
+    		<!-- /FOOTER -->
+    	</td>
+    	</tr>
+    </table>
+    <!--[if lte mso 7]>
+    </td></tr></table>
+    <![endif]-->
+    <!--[If gte mso 9]>
+    </td></tr></table>
+    <![endif]-->
+    </div>
+    <!--/100% body table-->
+  </body>
+</html>

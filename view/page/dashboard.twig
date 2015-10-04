@@ -1,0 +1,32 @@
+{% extends "layout.twig" %}
+{% block content %}
+
+<div class="container">
+  <div >
+    <h4> {{ textResources.get('album_' ~ album.getAlbumName) }} </h4>
+    <h5>{{ pageContext.get(viewType ~ 'Title') }}</h5>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-md-8 col-lg-7">
+      <canvas id="stickerArea" width="0" height="0"></canvas>
+    </div>
+    <div id="messageBoard" class="col-sm-4 col-md-4 col-lg-5">
+      <p class="lead">
+        {{ pageContext.get(viewType ~ 'BoardTitle') }}
+      </p>
+      <ul id="users" class="unstyled">
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<script>
+	$( document ).ready(function() {
+		loadDashboardComponent('stickerArea', StickerView.ViewType.{{ viewType }}, {{ album.albumId }}, {{ album.stickerCount }});
+	});
+</script>
+{% endblock %}

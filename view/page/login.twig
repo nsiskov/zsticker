@@ -1,0 +1,30 @@
+{% extends "layout.twig" %} {% block content %}
+<div class="container">
+  <form class="form-signin" role="form" method="POST" action="{{ urlRewrite.r('entry.php?t=login') }}">
+    <h2 class="form-signin-heading">{{pageContext.signInInfo}}</h2>
+    {% if showError %}
+    <div class="alert alert-danger alert-dismissible" role="alert">{{ pageContext.loginError }}</div>
+    {% endif %}
+    <input type="text" name="username" class="form-control" placeholder="{{pageContext.username}}"/> 
+    <input type="password" name="password" class="form-control" placeholder="{{pageContext.password}}"/> 
+    <div class="input-group" style="margin-bottom: 10px;">
+      <span class="input-group-addon">
+    		<input type="checkbox" value="remember-me" name="rememberMe" id="rememberMe"/>
+      </span>
+      <label for="rememberMe" class="form-control">
+	      {{pageContext.rememberMe}}
+      </label>
+    </div>
+    <div class="row">
+	    <div class="col-lg-6 pull-right">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-primary btn-block pull-right"
+            name="login" type="submit">{{ pageContext.signIn}}</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

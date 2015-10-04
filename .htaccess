@@ -1,0 +1,13 @@
+ErrorDocument 404 /errors/notfound.html
+ErrorDocument 403 /errors/forbidden.html
+
+RewriteEngine on
+
+#without language
+RewriteRule ^(.+?)(\.html)$ entry.php?t=$1  [NC,L,QSA]
+
+
+#AuthUserFile E:\dev\.htpasswd
+#AuthName "Please Log In"
+#AuthType Basic
+#require valid-user

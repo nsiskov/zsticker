@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{textResources.lang}}">
+  <head>
+    <base href="{{host}}{{pageContext.serverContext}}/" />
+    <title>{{pageContext.headTitle}} - {{textResources.siteTitle}}</title>
+    <meta name="description" content="{{ pageContext.headDescription }}" />
+    <meta name="keywords" content="{{pageContext.keywords}}" />
+    <meta name="language" content="{{textResources.lang}}" />
+    <meta name="copyright" content="{{textResources.headCopyright}}" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <meta property="og:url" content="http://{{pageContext.canonicalUrl}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{textResources.siteTitle}} - {{pageContext.headTitle}}" />
+    <meta property="og:image" content="{{host}}{{pageContext.serverContext}}/img/logo_small.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="100" />
+    <meta property="og:image:height" content="50" />
+    <meta property="og:site_name" content="Stickers" />
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon.png">
+    
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    
+    
+    <link rel="canonical" href="http://{{pageContext.canonicalUrl}}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
+    {% if config.srcCss %}
+    <link href="css/src/screen.css" rel="stylesheet" type="text/css" />
+    {% else %}
+    <link href="css/screen.css" rel="stylesheet" type="text/css" />
+    {% endif %}
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block header %}{% endblock %}
+  </head>
+  <body itemscope itemtype="http://schema.org/ItemPage">
+    {% block bodyHeader %}{% endblock %}
+    <div id="wrap">
+      {% include "fragment/header.twig" %}
+      {% block content %}{% endblock %}
+      {% include "fragment/footer.twig" %}
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% if config.srcJs %}
+    <script src="js/src/view.js"></script>
+    <script src="js/src/controller.js"></script>
+    <script src="js/src/app.js"></script>
+    {% else %}
+    <script src="js/zsticker.js"></script>
+    {% endif %}
+    <script>
+      $(function() {
+        $('a').click(function() {
+          var location = $(this).attr('href');
+          if (location != '#' ) {
+            document.location = location; 
+            return false;
+          }
+        });
+      });
+    </script>
+    {% block footer %}{% endblock %}
+  </body>
+</html>
