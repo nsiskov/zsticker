@@ -1,0 +1,2 @@
+# zsticker
+Sticker exchange app.
